@@ -6,6 +6,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Singleton
 
 @InstallIn(ApplicationComponent::class)
@@ -14,7 +15,7 @@ class DiskModule {
 
     @Provides
     @Singleton
-    fun provideRoomDatabase(context: Context): NewsDatabase {
+    fun provideRoomDatabase(@ApplicationContext context: Context): NewsDatabase {
         return Room.databaseBuilder(context, NewsDatabase::class.java, "news.db").build()
     }
 
