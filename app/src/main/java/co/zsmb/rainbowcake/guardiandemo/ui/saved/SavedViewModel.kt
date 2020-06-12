@@ -1,10 +1,10 @@
 package co.zsmb.rainbowcake.guardiandemo.ui.saved
 
+import androidx.hilt.lifecycle.ViewModelInject
 import co.zsmb.rainbowcake.base.RainbowCakeViewModel
 import kotlinx.coroutines.flow.collect
-import javax.inject.Inject
 
-class SavedViewModel @Inject constructor(
+class SavedViewModel @ViewModelInject constructor(
     private val savedPresenter: SavedPresenter
 ) : RainbowCakeViewModel<SavedViewState>(Loading) {
 

@@ -1,11 +1,11 @@
 package co.zsmb.rainbowcake.guardiandemo.ui.detail
 
+import androidx.hilt.lifecycle.ViewModelInject
 import co.zsmb.rainbowcake.base.OneShotEvent
 import co.zsmb.rainbowcake.base.RainbowCakeViewModel
 import java.io.IOException
-import javax.inject.Inject
 
-class DetailViewModel @Inject constructor(
+class DetailViewModel @ViewModelInject constructor(
     private val detailPresenter: DetailPresenter
 ) : RainbowCakeViewModel<DetailViewState>(Loading) {
 

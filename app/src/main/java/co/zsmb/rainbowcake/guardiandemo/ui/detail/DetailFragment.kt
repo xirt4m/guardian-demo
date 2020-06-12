@@ -5,9 +5,9 @@ import android.text.Html
 import android.view.View
 import android.widget.Toast
 import co.zsmb.rainbowcake.base.OneShotEvent
-import co.zsmb.rainbowcake.base.RainbowCakeFragment
-import co.zsmb.rainbowcake.dagger.getViewModelFromFactory
 import co.zsmb.rainbowcake.guardiandemo.R
+import co.zsmb.rainbowcake.guardiandemo.hilt.getViewModel
+import co.zsmb.rainbowcake.guardiandemo.hilt.RainbowCakeHiltFragment
 import co.zsmb.rainbowcake.guardiandemo.ui.detail.DetailViewModel.*
 import co.zsmb.rainbowcake.guardiandemo.ui.saved.SavedFragment
 import co.zsmb.rainbowcake.navigation.extensions.applyArgs
@@ -15,9 +15,11 @@ import co.zsmb.rainbowcake.navigation.extensions.requireString
 import co.zsmb.rainbowcake.navigation.navigator
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_detail.*
 
-class DetailFragment : RainbowCakeFragment<DetailViewState, DetailViewModel>() {
+@AndroidEntryPoint
+class DetailFragment : RainbowCakeHiltFragment<DetailViewState, DetailViewModel>() {
 
     companion object {
         private const val ARG_NEWS_ID = "ARG_NEWS_ID"
@@ -29,7 +31,7 @@ class DetailFragment : RainbowCakeFragment<DetailViewState, DetailViewModel>() {
         }
     }
 
-    override fun provideViewModel() = getViewModelFromFactory()
+    override fun provideViewModel() = getViewModel()
     override fun getViewResource() = R.layout.fragment_detail
 
     private lateinit var newsId: String

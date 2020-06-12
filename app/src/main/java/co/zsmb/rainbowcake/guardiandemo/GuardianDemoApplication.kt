@@ -1,23 +1,14 @@
 package co.zsmb.rainbowcake.guardiandemo
 
+import android.app.Application
 import co.zsmb.rainbowcake.config.Loggers
 import co.zsmb.rainbowcake.config.rainbowCake
-import co.zsmb.rainbowcake.dagger.RainbowCakeApplication
-import co.zsmb.rainbowcake.guardiandemo.di.AppComponent
-import co.zsmb.rainbowcake.guardiandemo.di.ApplicationModule
-import co.zsmb.rainbowcake.guardiandemo.di.DaggerAppComponent
 import co.zsmb.rainbowcake.timber.TIMBER
+import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
-class GuardianDemoApplication : RainbowCakeApplication() {
-
-    override lateinit var injector: AppComponent
-
-    override fun setupInjector() {
-        injector = DaggerAppComponent.builder()
-            .applicationModule(ApplicationModule(this))
-            .build()
-    }
+@HiltAndroidApp
+class GuardianDemoApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()

@@ -1,10 +1,10 @@
 package co.zsmb.rainbowcake.guardiandemo.ui.list
 
+import androidx.hilt.lifecycle.ViewModelInject
 import co.zsmb.rainbowcake.base.RainbowCakeViewModel
 import java.io.IOException
-import javax.inject.Inject
 
-class ListViewModel @Inject constructor(
+class ListViewModel @ViewModelInject constructor(
     private val listPresenter: ListPresenter
 ) : RainbowCakeViewModel<ListViewState>(Loading) {
 
